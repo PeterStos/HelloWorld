@@ -8,31 +8,46 @@ namespace HelloWorld
 {
     class Program
     {
-        
         static void Main(string[] args)
         {
-            int num1 = 0;
-            int num2 = 0;
-            int answer = 0;
 
-            Console.WriteLine("Enter a number:");
-            string sNum = Console.ReadLine();
+            PetStruct dog;
+            //dog.Type = "Dog"; Dog is no lnger string after add enum
+            dog.Type = PetType.Dog;
+            dog.HasFur = true;
+            dog.Legs = 4;
 
-            Console.WriteLine("Enter another number:");
-            string sNum2 = Console.ReadLine();
+            PetClass duck = new PetClass();
+            //duck.Type = "Duck";
+            duck.Type = PetType.Duck;
+            duck.HasFur = false;
+            duck.Legs = 2;
 
-            Int32.TryParse(sNum, out num1);
-            Int32.TryParse(sNum2, out num2);
-
-            answer = num1 + num2;
-
-            Console.WriteLine("the answer is: " + answer);
+            Console.WriteLine("A " + dog.Type + " has " + dog.Legs + " legs.");
+            Console.WriteLine("A " + duck.Type + " has " + duck.Legs + " legs.");
 
             Console.ReadLine();
         }
+    }
 
-        static void WriteLine(string value){ 
-        
-        }
+    class PetClass
+    {
+        public int Legs;
+        public PetType Type;
+        public string Name;
+        public bool HasFur;
+    }
+
+    struct PetStruct
+    {
+        public int Legs;
+        public PetType Type;
+        public string Name;
+        public bool HasFur;
+    }
+
+    enum PetType 
+    { 
+        Dog, Duck 
     }
 }
