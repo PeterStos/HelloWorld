@@ -18,6 +18,39 @@ namespace HelloWorld
         }
         static void Main(string[] args)
         {
+            // Start of the block Arrays and collections
+            int[] intArray = new int[5];
+            string[] stringArray = new string[5];
+
+            int[] populatedArray = new int[] {0, 1, 2, 3, 4, 5};
+            string[] populatedStringArray = new string[] { "One", "Two", "Three" };
+
+            intArray[0] = 5;
+            intArray[2] = 15;
+
+            int firstValue = intArray[0];
+
+            int[,] multiInt = new int[2,3]; //  2 in the first column, 3 in the second
+            int[,] multiPopulatedInt = { {1, 2, 3}, {5, 6, 7} };
+
+            int firstMultiValue = multiPopulatedInt[0, 0]; // value would be 1
+            int secondMultiValue = multiPopulatedInt[1, 2]; // value 7
+
+            List<string> listOfStrings = new List<string>();
+            listOfStrings.Add("fist String"); // add to the end of List
+            listOfStrings.Insert(0, "Inserted String"); // insert based on index
+            listOfStrings.Remove("first String"); // removing based on content
+            listOfStrings.Remove("0"); // removing based in index
+
+            listOfStrings.Sort();
+            var theFirstString = listOfStrings[0];
+
+            Dictionary<string, string> names = new Dictionary<string, string>();
+            names.Add("James", "Bond");
+            names.Add("Money", "Penny");
+            names.Remove("James");
+            // End of the block Arrays and collections
+            
             PetStruct dog = new PetStruct();
             dog.Type = PetType.Dog;
             dog.HasFur = true;
