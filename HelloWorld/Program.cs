@@ -68,6 +68,25 @@ namespace HelloWorld
             Console.WriteLine("A " + dog.Type + " has " + dog.Legs + " legs.");
             Console.WriteLine("A " + duck.Type + " has " + duck.Legs + " legs.");
 
+            List<PetClass> pets = new List<PetClass>();
+            //PetClass mydog = new PetClass(); // a way to create the object 
+            
+            // Another way to create the object in the List using LINQ
+            pets.Add(new PetClass { HasFur = false, Legs = 2, Name = "Donald", Type = PetType.Duck }); // frist item of the list
+            pets.Add(new PetClass { HasFur = true, Legs = 4, Name = "Pluto", Type = PetType.Dog }); // second item
+
+            List<PetClass> results = (from p in pets
+                                      where p.Type == PetType.Dog
+                                      select p).ToList();
+
+            //<PetClass> results = (from p in pets
+            //                          where p.Name == "Pluto"
+            //                          select p).FirstOrDefault();
+
+            // Another way using Lambda
+            PetClass result = pets.FirstOrDefault(p => p.Type == PetType.Dog); // when returned a sigle item
+            
+            Console.WriteLine("found " + results.Count + " Dogs");
             Console.ReadLine();
         }
     }
